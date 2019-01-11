@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link } from 'components/link';
 import s from './Button.scss';
 
 interface IButtonProps {
@@ -39,7 +39,7 @@ export class Button extends React.PureComponent<IButtonProps> {
 
     // Everything else
     if (isLink) {
-      return <Link to={to || '#'} {...passProps}>{children}</Link>;
+      return <Link to={to || '#'} {...passProps}><a>{children}</a></Link>;
     }
 
     // Default

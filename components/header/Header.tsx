@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link } from 'components/link';
 import Logo from 'assets/svg/logo.svg';
 import s from './Header.scss';
 
@@ -16,7 +16,7 @@ export class Header extends React.PureComponent<IProps> {
         <div className={s.header__container}>
           <div className={s.header__content}>
             <Link to="/" className={s.header__logo}>
-              <Logo className={s.header__logoSvg} />
+              <a><Logo className={s.header__logoSvg} /></a>
             </Link>
 
             <div className={s.header__navigation}>
