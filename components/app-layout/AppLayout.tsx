@@ -1,32 +1,31 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+
 import { Header } from 'components/header/Header';
 import { Devtools } from 'components/devtools/Devtools';
+
+import 'styles/fonts.scss';
+
 import s from './AppLayout.scss';
 
-export class AppLayout extends React.PureComponent {
-
-  public render() {
-    return (
-      <>
-        <Helmet
-          title="Ueno starter"
-          meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
-          ]}
-        >
-          <html lang="en" />
-        </Helmet>
-
-        <Header />
-
-        <div className={s.layout}>
-          {this.props.children}
-        </div>
-
-        <Devtools />
-      </>
-    );
-  }
+interface IProps {
+  children: React.ReactNode;
 }
+
+export default ({ children }: IProps) => (
+  <div className={s.layout}>
+    <Helmet
+      title="Ueno starter"
+      meta={[
+        { name: 'description', content: 'Sample' },
+        { name: 'keywords', content: 'sample, something' },
+      ]}
+    >
+      <html lang="en" />
+    </Helmet>
+
+    <Header />
+    {children}
+    <Devtools />
+  </div>
+);

@@ -1,38 +1,42 @@
-import React from 'react';
+import * as React from 'react';
+
 import s from './GsapTools.scss';
 
-const GsapDevTools = require('gsap-tools').default;
-const LOCAL_STORAGE_GSAPTOOLS = '_devtoolsGsapToolsVisible';
-
-export class GsapTools extends React.Component<{ button: boolean }> {
-
-  state = {
-    visible: false,
-  }
-
-  onToggleGsapTools = () => {
-    const { visible } = this.state;
-    this.setState({ visible: !visible });
-    localStorage.setItem(LOCAL_STORAGE_GSAPTOOLS, String(!visible));
-  }
-
-  render() {
-    const { visible } = this.state;
-    const { button } = this.props;
-
-    return (
-      <>
-        {button && (
-          <button className={s(s.button, { visible })} onClick={this.onToggleGsapTools}>
-            GSAP
-          </button>
-        )}
-        <GsapDevTools
-          onClick={this.onToggleGsapTools}
-          isVisible={visible}
-          isFixed
-        />
-      </>
-    );
-  }
+interface IProps {
+  button: boolean;
 }
+
+// tslint:disable-next-line:no-var-requires
+const GsapDevTools = require('gsap-tools').default;
+const LOCAL_STORAGE_GSAPTOOLS = '_uenoDevtoolsGsapTools';
+
+export const GsapTools = ({ button }: IProps) => {
+  const [visible, setVisible] = React.useState(false);
+
+  const onToggleGsapTools = () => {
+    setVisible(!visible);
+    localStorage.setItem(LOCAL_STORAGE_GSAPTOOLS, String(!visible));
+  };
+
+  React.useEffect(() => {
+    if (localStorage.getItem(LOCAL_STORAGE_GSAPTOOLS) === 'true') {
+      setVisible(true);
+    }
+  }, []);
+
+  return (
+    <>
+      {button && (
+        <button className={s(s.button, { visible })} onClick={onToggleGsapTools}>
+          GSAP
+        </button>
+      )}
+
+      <GsapDevTools
+        onClick={onToggleGsapTools}
+        isVisible={visible}
+        isFixed
+      />
+    </>
+  );
+};

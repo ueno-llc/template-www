@@ -1,30 +1,26 @@
-import React from 'react';
+import * as React from 'react';
 import { Link } from 'components/link/Link';
+
 import Logo from 'assets/svg/logo.svg';
+
 import s from './Header.scss';
 
 interface IProps {
   children?: React.ReactNode;
-  title?: string;
 }
 
-export class Header extends React.PureComponent<IProps> {
+export const Header = ({ children }: IProps) => (
+  <header className={s.header}>
+    <div className={s.header__container}>
+      <div className={s.header__content}>
+        <Link to="/" className={s.header__logo}>
+          <Logo className={s.header__logoSvg} />
+        </Link>
 
-  render() {
-    return (
-      <header className={s.header}>
-        <div className={s.header__container}>
-          <div className={s.header__content}>
-            <Link to="/" className={s.header__logo}>
-              <a><Logo className={s.header__logoSvg} /></a>
-            </Link>
-
-            <div className={s.header__navigation}>
-              {this.props.children}
-            </div>
-          </div>
+        <div className={s.header__navigation}>
+          {children}
         </div>
-      </header>
-    );
-  }
-}
+      </div>
+    </div>
+  </header>
+);

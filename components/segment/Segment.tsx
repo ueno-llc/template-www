@@ -1,30 +1,25 @@
-import React from 'react';
+import * as React from 'react';
+
 import { Container } from 'components/container/Container';
+
 import s from './Segment.scss';
 
 interface ISegmentProps {
-  children?: React.ReactNode;
+  children: React.ReactNode;
   container?: boolean;
 }
 
-export class Segment extends React.PureComponent<ISegmentProps> {
+export const Segment = (props: ISegmentProps) => {
+  const { children, container } = props;
+  const content = container ? <Container>{children}</Container> : children;
 
-  static defaultProps = {
-    container: true,
-  };
+  return (
+    <section className={s.segment}>
+      {content}
+    </section>
+  );
+};
 
-  public render() {
-    const {
-      children,
-      container,
-    } = this.props;
-
-    const content = container ? <Container>{children}</Container> : children;
-
-    return (
-      <section className={s.segment}>
-        {content}
-      </section>
-    );
-  }
-}
+Segment.defaultProps = {
+  container: true,
+};
