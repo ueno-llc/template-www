@@ -6,6 +6,10 @@ import { GsapTools } from './GsapTools';
 const LOCAL_STORAGE_KEY_VISIBLE = '_uenoDevtoolsVisible';
 
 export const Devtools = () => {
+  if (typeof window === 'undefined') {
+    return null;
+  }
+
   const [visible, setVisible] = React.useState(localStorage.getItem(LOCAL_STORAGE_KEY_VISIBLE) === 'true');
 
   const onKeyDown = (e: KeyboardEvent) => {
