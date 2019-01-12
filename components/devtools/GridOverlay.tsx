@@ -12,45 +12,43 @@ interface IProps {
 }
 
 export const GridOverlay = ({ columns, baseline, button }: IProps) => {
-  const gridOverlayRef: React.RefObject<HTMLDivElement> = React.useRef(null);
-  const [isHorizontalVisible, setHorizontal] = React.useState<boolean>(false);
-  const [isVerticalVisible, setVertical] = React.useState<boolean>(false);
+  const gridOverlayRef = React.useRef<HTMLDivElement>(null);
+  const [isHorizontalVisible, setHorizontal] = React.useState<boolean>(localStorage.getItem(LOCAL_STORAGE_KEY_HORIZONTAL) === 'true');
+  const [isVerticalVisible, setVertical] = React.useState<boolean>(localStorage.getItem(LOCAL_STORAGE_KEY_VERTICAL) === 'true');
 
   const onKeyDown = (e: KeyboardEvent) => {
     if (e.ctrlKey && e.keyCode === 76) {
       onToggleVertical();
     }
+
+    if (e.ctrlKey && e.keyCode === 77) {
+      onToggleHorizontal();
+    }
   };
 
   const onToggleHorizontal = () => {
-    localStorage.setItem(LOCAL_STORAGE_KEY_HORIZONTAL, String(!isHorizontalVisible));
     setHorizontal(!isHorizontalVisible);
+    localStorage.setItem(LOCAL_STORAGE_KEY_HORIZONTAL, String(!isHorizontalVisible));
   };
 
   const onToggleVertical = () => {
-    localStorage.setItem(LOCAL_STORAGE_KEY_VERTICAL, String(!isVerticalVisible));
     setVertical(!isVerticalVisible);
+    localStorage.setItem(LOCAL_STORAGE_KEY_VERTICAL, String(!isVerticalVisible));
   };
 
-  const setup = () => {
-    setHorizontal(localStorage.getItem(LOCAL_STORAGE_KEY_HORIZONTAL) === 'true');
-    setVertical(localStorage.getItem(LOCAL_STORAGE_KEY_VERTICAL) === 'true');
-
+  React.useEffect(() => {
     if (gridOverlayRef.current) {
       gridOverlayRef.current.style.setProperty('--grid-column-count', String(columns));
       gridOverlayRef.current.style.setProperty('--grid-baseline', `${baseline}px`);
       gridOverlayRef.current.style.setProperty('--grid-baseline-calc', String(baseline));
     }
-  };
 
-  React.useEffect(() => {
-    setup();
-    document.addEventListener('keydown', onKeyDown);
+    document.addEventListener('keydown', onKeyDown, false);
 
     return () => {
-      document.removeEventListener('keydown', onKeyDown);
+      document.removeEventListener('keydown', onKeyDown, false);
     };
-  }, []);
+  });
 
   return (
     <div
