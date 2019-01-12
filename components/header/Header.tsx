@@ -13,8 +13,8 @@ export const Header = ({ children }: IProps) => (
   <header className={s.header}>
     <div className={s.header__container}>
       <div className={s.header__content}>
-        <Link to="/" className={s.header__logo}>
-          <Logo className={s.header__logoSvg} />
+        <Link to="/">
+          <a className={s.header__logo}><Logo className={s.header__logoSvg} /></a>
         </Link>
 
         <div className={s.header__navigation}>
