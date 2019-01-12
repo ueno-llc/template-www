@@ -18,15 +18,17 @@ export const Button = (props: IButtonProps) => {
   const isExternal = isLink && /^((https?:)?\/\/|[0-9a-zA-Z]+:)/.test(to || '');
 
   passProps.className = s(s.button, className, { disabled, secondary, block });
-  passProps.disabled = disabled;
 
   if (isExternal) {
     return <a target="_blank" rel="noopener noreferrer" href={to} {...passProps}>{children}</a>;
   }
 
   if (isLink) {
-    return <Link to={to || '#'} {...passProps}><a>{children}</a></Link>;
+    return <Link to={to || '#'}><a {...passProps}>{children}</a></Link>;
   }
 
+  // Only works for buttons
+  passProps.disabled = disabled;
+  
   return <button {...passProps}>{children}</button>;
 };
