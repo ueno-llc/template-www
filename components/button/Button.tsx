@@ -25,7 +25,7 @@ export const Button = (props: IButtonProps) => {
   }
 
   if (isLink) {
-    return <Link to={to || '#'} {...passProps}>{children}</Link>;
+    return <Link to={to || '#'} {...passProps}><a>{children}</a></Link>;
   }
 
   return <button {...passProps}>{children}</button>;
