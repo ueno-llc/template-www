@@ -4,8 +4,6 @@ import Helmet from 'react-helmet';
 import { Header } from 'components/header/Header';
 import { Devtools } from 'components/devtools/Devtools';
 
-import 'styles/fonts.scss';
-
 import s from './AppLayout.scss';
 
 interface IProps {
