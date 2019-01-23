@@ -6,27 +6,38 @@ interface ILinkProps {
 }
 
 export const Link = ({ children, ...props }: ILinkProps) => {
-  const child = React.cloneElement(React.Children.only(children), props);
   let Component;
-  let next = false;
+  let isNext = false;
 
-  try { Component = require('next/link'); next = true; } catch (e) {} // tslint:disable-line no-empty
-
-  if (!Component) {
-    try { Component = require('gatsby').Link; } catch (e) {} // tslint:disable-line no-empty
+  try {
+    Component = require('next/link'); isNext = true;
+  } catch (e) {
+    // noop
   }
 
-  if (!Component) {
-    try { Component = require('react-router-dom').Link; } catch (e) {} // tslint:disable-line no-empty
+  if (!Component && !isNext) {
+    try {
+      Component = require('gatsby').Link;
+    } catch (e) {
+      // noop
+    }
   }
 
-  if (next) {
-    return <Component>{child}</Component>;
+  if (!Component && !isNext) {
+    try {
+      Component = require('react-router-dom').Link;
+    } catch (e) {
+      // noop
+    }
+  }
+
+  if (isNext) {
+    return <Component>{children}</Component>;
   }
 
   return (
     <Component {...props}>
-      {child.props.children}
+      {children}
     </Component>
   );
 };
