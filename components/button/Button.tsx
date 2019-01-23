@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { Link } from 'components/link/Link';
 
 import s from './Button.scss';
@@ -24,11 +25,11 @@ export const Button = (props: IButtonProps) => {
   }
 
   if (isLink) {
-    return <Link to={to || '#'}><a {...passProps}>{children}</a></Link>;
+    return <Link to={to || '#'} {...passProps}>{children}</Link>;
   }
 
   // Only works for buttons
   passProps.disabled = disabled;
-  
+
   return <button {...passProps}>{children}</button>;
 };
