@@ -15,11 +15,9 @@
 }
 
 @mixin responsive-font($min-size: $font-size-min, $size: $font-size, $limit: $page-limit) {
-
   $unitless-min: strip-unit($min-size);
   $unitless-size: strip-unit($size);
   $baseline: strip-unit($min-mobile);
-
   $font-multiplier: (($unitless-size - $unitless-min) / (strip-unit($limit) - $baseline));
   $font-baseline: ($unitless-min - $font-multiplier * $baseline);
 
@@ -124,38 +122,6 @@
   }
 }
 
-// deprecated viewport stuff
-@mixin viewport($media) {
-  @warn 'viewport mixin is deprecated and will be removed in a future version';
-
-  @if $media == handset {
-    @media only screen and (max-width: $min-600) { @content; }
-  }
-
-  @else if $media == tablet {
-    @media only screen and (min-width: $min-tablet) { @content; }
-  }
-
-  @else if $media == desktop {
-    @media only screen and (min-width: $min-desktop) { @content; }
-  }
-
-  /* stylelint-disable */
-  @else if $media == retina {
-    @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
-      only screen and (-o-min-device-pixel-ratio: 13/10),
-      only screen and (min-resolution: 120dpi) {
-      @content;
-    }
-  }
-
-  @else if $media == oldIE {
-    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-      @content;
-    }
-  }
-}
-
 @mixin retina {
   @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
     only screen and (-o-min-device-pixel-ratio: 13/10),
@@ -166,7 +132,6 @@
 
 // gsap trans-in defaults
 @mixin will-animate($transform: true, $opacity: true) {
-
   @include js-only {
     @if $opacity == true {
       opacity: 0;
