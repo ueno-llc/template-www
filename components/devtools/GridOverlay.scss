@@ -1,8 +1,8 @@
 @import '~styles/config';
 
 :root {
-  --grid-column-count: $grid-column-count;
-  --grid-baseline: $grid-baseline;
+  --grid-column-count: #{$grid-column-count};
+  --grid-baseline: #{$grid-baseline};
   --grid-baseline-calc: unitless($grid-baseline);
 }
 
