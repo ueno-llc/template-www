@@ -1,6 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
+import { helmet } from 'utils/helmet';
 import { Header } from 'components/header/Header';
 import { Devtools } from 'components/devtools/Devtools';
 
@@ -10,23 +11,15 @@ interface IProps {
   children: React.ReactNode;
 }
 
+const isDev = process.env.NODE_ENV === 'development';
+
 export default ({ children }: IProps) => (
   <div className={s.layout}>
-    <Helmet
-      title="Ueno starter"
-      meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
-      ]}
-    >
-      <html lang="en" />
-    </Helmet>
-
+    <Helmet {...helmet} />
     <Header />
+
     {children}
 
-    {process.env.NODE_ENV === 'development' && (
-      <Devtools />
-    )}
+    {isDev && <Devtools />}
   </div>
 );
