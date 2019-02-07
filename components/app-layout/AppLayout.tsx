@@ -24,6 +24,9 @@ export default ({ children }: IProps) => (
 
     <Header />
     {children}
-    <Devtools />
+
+    {process.env.NODE_ENV === 'development' && (
+      <Devtools />
+    )}
   </div>
 );
