@@ -15,8 +15,8 @@ interface IProps {
 
 export const GridOverlay = ({ columns, baseline, button }: IProps) => {
   const gridOverlayRef = React.useRef<HTMLDivElement>(null);
-  const [isHorizontalVisible, setHorizontal] = React.useState<boolean>(localStorage.getItem(LOCAL_STORAGE_KEY_HORIZONTAL) === 'true');
-  const [isVerticalVisible, setVertical] = React.useState<boolean>(localStorage.getItem(LOCAL_STORAGE_KEY_VERTICAL) === 'true');
+  const [isHorizontalVisible, setHorizontal] = React.useState(false);
+  const [isVerticalVisible, setVertical] = React.useState(false);
   const keys = useKeyDown();
 
   const onToggleHorizontal = () => {
@@ -30,6 +30,12 @@ export const GridOverlay = ({ columns, baseline, button }: IProps) => {
   };
 
   React.useEffect(() => {
+    const horizontal = localStorage.getItem(LOCAL_STORAGE_KEY_HORIZONTAL) === 'true';
+    const vertical = localStorage.getItem(LOCAL_STORAGE_KEY_VERTICAL) === 'true';
+
+    setHorizontal(horizontal);
+    setVertical(vertical);
+
     if (gridOverlayRef.current) {
       gridOverlayRef.current.style.setProperty('--grid-column-count', String(columns));
       gridOverlayRef.current.style.setProperty('--grid-baseline', `${baseline}px`);

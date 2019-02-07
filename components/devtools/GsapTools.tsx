@@ -22,10 +22,10 @@ export const GsapTools = ({ button }: IProps) => {
   };
 
   React.useEffect(() => {
-    if (localStorage.getItem(LOCAL_STORAGE_GSAPTOOLS) === 'true') {
-      setVisible(true);
-    }
-  }, [localStorage]);
+    const isVisible = localStorage.getItem(LOCAL_STORAGE_GSAPTOOLS) === 'true';
+
+    setVisible(isVisible);
+  }, []);
 
   React.useEffect(() => {
     if (keys.includes(17) && keys.includes(71)) {

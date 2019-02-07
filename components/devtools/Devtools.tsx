@@ -8,7 +8,7 @@ import { GsapTools } from './GsapTools';
 const LOCAL_STORAGE_KEY_VISIBLE = '_uenoDevtoolsVisible';
 
 export const Devtools = () => {
-  const [visible, setVisible] = React.useState(localStorage.getItem(LOCAL_STORAGE_KEY_VISIBLE) === 'true');
+  const [visible, setVisible] = React.useState(false);
   const keys = useKeyDown();
 
   const onToggleDisplay = () => {
@@ -17,12 +17,16 @@ export const Devtools = () => {
   };
 
   React.useEffect(() => {
+    const isVisible = localStorage.getItem(LOCAL_STORAGE_KEY_VISIBLE) === 'true';
+
+    setVisible(isVisible);
+
     if (keys.includes(17) && keys.includes(75)) {
       onToggleDisplay();
     }
   }, [keys]);
 
-  if (!visible && process.env.NODE_ENV !== 'development') {
+  if (!visible) {
     return null;
   }
 
