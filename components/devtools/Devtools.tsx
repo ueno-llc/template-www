@@ -1,22 +1,15 @@
 import * as React from 'react';
 
+import { useKeyDown } from 'hooks/use-keydown';
+
 import { GridOverlay } from './GridOverlay';
 import { GsapTools } from './GsapTools';
 
 const LOCAL_STORAGE_KEY_VISIBLE = '_uenoDevtoolsVisible';
 
 export const Devtools = () => {
-  if (typeof window === 'undefined') {
-    return null;
-  }
-
   const [visible, setVisible] = React.useState(localStorage.getItem(LOCAL_STORAGE_KEY_VISIBLE) === 'true');
-
-  const onKeyDown = (e: KeyboardEvent) => {
-    if (e.ctrlKey && e.keyCode === 75) {
-      onToggleDisplay();
-    }
-  };
+  const keys = useKeyDown();
 
   const onToggleDisplay = () => {
     setVisible(!visible);
@@ -24,12 +17,10 @@ export const Devtools = () => {
   };
 
   React.useEffect(() => {
-    document.addEventListener('keydown', onKeyDown, false);
-
-    return () => {
-      document.removeEventListener('keydown', onKeyDown, false);
-    };
-  });
+    if (keys.includes(17) && keys.includes(75)) {
+      onToggleDisplay();
+    }
+  }, [keys]);
 
   if (!visible && process.env.NODE_ENV !== 'development') {
     return null;

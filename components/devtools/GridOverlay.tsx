@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { useKeyDown } from 'hooks/use-keydown';
+
 import s from './GridOverlay.scss';
 
 const LOCAL_STORAGE_KEY_HORIZONTAL = '_uenoDevtoolsHorizontalGrid';
@@ -15,16 +17,7 @@ export const GridOverlay = ({ columns, baseline, button }: IProps) => {
   const gridOverlayRef = React.useRef<HTMLDivElement>(null);
   const [isHorizontalVisible, setHorizontal] = React.useState<boolean>(localStorage.getItem(LOCAL_STORAGE_KEY_HORIZONTAL) === 'true');
   const [isVerticalVisible, setVertical] = React.useState<boolean>(localStorage.getItem(LOCAL_STORAGE_KEY_VERTICAL) === 'true');
-
-  const onKeyDown = (e: KeyboardEvent) => {
-    if (e.ctrlKey && e.keyCode === 76) {
-      onToggleVertical();
-    }
-
-    if (e.ctrlKey && e.keyCode === 77) {
-      onToggleHorizontal();
-    }
-  };
+  const keys = useKeyDown();
 
   const onToggleHorizontal = () => {
     setHorizontal(!isHorizontalVisible);
@@ -42,13 +35,17 @@ export const GridOverlay = ({ columns, baseline, button }: IProps) => {
       gridOverlayRef.current.style.setProperty('--grid-baseline', `${baseline}px`);
       gridOverlayRef.current.style.setProperty('--grid-baseline-calc', String(baseline));
     }
+  }, [columns, baseline]);
 
-    document.addEventListener('keydown', onKeyDown, false);
+  React.useEffect(() => {
+    if (keys.includes(17) && keys.includes(76)) {
+      onToggleVertical();
+    }
 
-    return () => {
-      document.removeEventListener('keydown', onKeyDown, false);
-    };
-  });
+    if (keys.includes(17) && keys.includes(77)) {
+      onToggleHorizontal();
+    }
+  }, [keys]);
 
   return (
     <div
