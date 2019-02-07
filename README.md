@@ -1,15 +1,15 @@
-[![logo](https://user-images.githubusercontent.com/937328/52405150-91398a00-2ac2-11e9-8b03-36b495817271.png)](https://ueno.co/?utm_source=github&utm_campaign=create-ueno-app)
+[![logo](https://user-images.githubusercontent.com/937328/52405150-91398a00-2ac2-11e9-8b03-36b495817271.png)](https://ueno.co/?utm_source=github&utm_campaign=template-www)
 <br /><br />
 ![banner](https://user-images.githubusercontent.com/937328/52415106-0c5c6980-2ade-11e9-9b85-2e9722bd2fce.png)
 <br /><br />
-[![about](https://user-images.githubusercontent.com/937328/51540139-999c8e80-1e4d-11e9-866d-284657a34744.png)](https://ueno.co/contact/?utm_source=github&utm_campaign=create-ueno-app)
+[![about](https://user-images.githubusercontent.com/937328/51540139-999c8e80-1e4d-11e9-866d-284657a34744.png)](https://ueno.co/contact/?utm_source=github&utm_campaign=template-www)
 <br /><br />
 
 ## Template-www
 
 This repository is used as git submodule for our differents starter kits. During the installation process of each starters, the submodule is resolved and this repository is cloned into the freshly created new app.
 
-We use [`create-ueno-app`](https://github.com/ueno-llc/create-ueno-app) to create the project with the stack you need.
+Check out [`create-ueno-app`](https://github.com/ueno-llc/create-ueno-app) to create projects with the stack you need.
 
 ## Updating
 
