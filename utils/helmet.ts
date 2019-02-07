@@ -1,7 +1,6 @@
-import image from 'assets/images/share.jpg';
-
 const title = 'Create Ueno App';
 const description = 'The easiest and fastest way to create new projects.';
+const image = './assets/images/share.jpg';
 
 export const helmet = {
   title,
