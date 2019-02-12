@@ -70,7 +70,7 @@ $min-desktop: $min-1080;
 
 // Segment
 $segment-padding-mobile: $gutter * 3;
-$segment-padding: 200px;
+$segment-padding: 200px; //percentage-based segments spacing
 
 // vertically responsive breakpoints
 // might need to fine-tune these
