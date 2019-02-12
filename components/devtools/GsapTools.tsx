@@ -1,4 +1,5 @@
 import * as React from 'react';
+import GsapDevTools from 'gsap-tools';
 
 import { useKeyDown } from 'hooks/use-keydown';
 
@@ -8,8 +9,6 @@ interface IProps {
   button: boolean;
 }
 
-// tslint:disable-next-line:no-var-requires
-const GsapDevTools = require('gsap-tools').default;
 const LOCAL_STORAGE_GSAPTOOLS = '_uenoDevtoolsGsapTools';
 
 export const GsapTools = ({ button }: IProps) => {
