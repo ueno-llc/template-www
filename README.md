@@ -25,22 +25,12 @@ git add .
 git commit -m "Updated latest template-www"
 ```
 
-### [Next](https://github.com/ueno-llc/create-ueno-app)
-
-On the root of `create-ueno-app`, pull updates from `template-www`
+### [Next](https://github.com/ueno-llc/ueno-next-starter)
 
 ```bash
 git submodule update --init --force --remote
 git add .
 git commit -m "Updated latest template-www"
-```
-
-Publishing new version of the package
-
-```bash
-npm version ("major" | "minor" | "patch")
-git push master --tags
-npm publish
 ```
 
 ### [create-react-app](https://github.com/ueno-llc/create-react-app)
