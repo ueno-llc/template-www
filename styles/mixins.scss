@@ -53,6 +53,7 @@
   $padding-bottom: $segment-padding,
   $padding-top-mobile: $segment-padding-mobile,
   $padding-bottom-mobile: $segment-padding-mobile) {
+  flex-grow: 1;
 
   // set up unitless values
   $padding-top-mobile-unitless: strip-unit($padding-top-mobile);
@@ -75,8 +76,9 @@
 }
 
 @mixin container() {
-  margin: 0 auto;
+  flex-grow: 1;
 
+  margin: 0 auto;
   padding-left: $container-gutter-mobile;
   padding-right: $container-gutter-mobile;
 
@@ -108,8 +110,6 @@
   // per project
 }
 
-// html.js / html.no-js will not compile?!
-// hence these workaround selectors
 @mixin js-only {
   html:not(:global(.no-js)) & {
     @content;
