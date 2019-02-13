@@ -27,6 +27,8 @@ git commit -m "Updated latest template-www"
 
 ### [Next](https://github.com/ueno-llc/ueno-next-starter)
 
+On the root of `ueno-next-starter`, pull updates from `template-www`
+
 ```bash
 git submodule update --init --force --remote
 git add .
