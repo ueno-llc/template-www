@@ -14,22 +14,16 @@
 }
 
 :root {
-  --scale-element: #{$scale};
-  --scale-font: #{$scale};
+  @if global-variable-exists(scale) {
+    --scale-element: 1;
+    --scale-font: 1;
 
-  @media (max-height: $scale-height-lg) {
-    --scale-element: #{$scale-element-lg};
-    --scale-font: #{$scale-font-lg};
-  }
-
-  @media (max-height: $scale-height-md) {
-    --scale-element: #{$scale-element-md};
-    --scale-font: #{$scale-font-md};
-  }
-
-  @media (max-height: $scale-height-sm) {
-    --scale-element: #{$scale-element-sm};
-    --scale-font: #{$scale-font-sm};
+    @each $size in $scale {
+      @media (max-height: nth($size, 1)) {
+        --scale-element: #{nth($size, 2)};
+        --scale-font: #{nth($size, 2)};
+      }
+    }
   }
 }
 

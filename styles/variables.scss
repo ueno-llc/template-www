@@ -72,26 +72,11 @@ $min-desktop: $min-1080;
 $segment-padding-mobile: $gutter * 3;
 $segment-padding: 200px; //percentage-based segments spacing
 
-// vertically responsive breakpoints
-// might need to fine-tune these
-$scale-height-sm: 685px;
-$scale-height-md: 805px;
-$scale-height-lg: 920px;
-
-// vertical scaling baselines
-$scale: 1;
-$scale-lg: 1;
-$scale-md: 1;
-$scale-sm: 1;
-
-// element scaling
-$scale-element: $scale;
-$scale-element-lg: $scale-lg;
-$scale-element-md: $scale-md;
-$scale-element-sm: $scale-sm;
-
-// font-scaling
-$scale-font: $scale;
-$scale-font-lg: $scale-lg;
-$scale-font-md: $scale-md;
-$scale-font-sm: $scale-sm;
+// Vertical scaling values.
+// remove this map to disable vertical scaling
+// value 1 = height breakpoint, value 2 = multiplier
+$scale: (
+  (920px, 0.975),
+  (800px, 0.95),
+  (690px, 0.925),
+);
