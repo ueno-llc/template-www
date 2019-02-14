@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { useKeyDown } from 'hooks/use-keydown';
+import { useLocalStorage } from 'hooks/use-localstorage';
 
 import s from './GridOverlay.scss';
 
@@ -15,27 +16,19 @@ interface IGridOverlayProps {
 
 export const GridOverlay = ({ columns, baseline, button }: IGridOverlayProps) => {
   const gridOverlayRef = React.useRef<HTMLDivElement>(null);
-  const [isHorizontalVisible, setHorizontal] = React.useState(false);
-  const [isVerticalVisible, setVertical] = React.useState(false);
+  const [isHorizontalVisible, setHorizontal] = useLocalStorage(LOCAL_STORAGE_KEY_HORIZONTAL, false);
+  const [isVerticalVisible, setVertical] = useLocalStorage(LOCAL_STORAGE_KEY_VERTICAL, false);
   const keys = useKeyDown();
 
   const onToggleHorizontal = () => {
     setHorizontal(!isHorizontalVisible);
-    localStorage.setItem(LOCAL_STORAGE_KEY_HORIZONTAL, String(!isHorizontalVisible));
   };
 
   const onToggleVertical = () => {
     setVertical(!isVerticalVisible);
-    localStorage.setItem(LOCAL_STORAGE_KEY_VERTICAL, String(!isVerticalVisible));
   };
 
   React.useEffect(() => {
-    const horizontal = localStorage.getItem(LOCAL_STORAGE_KEY_HORIZONTAL) === 'true';
-    const vertical = localStorage.getItem(LOCAL_STORAGE_KEY_VERTICAL) === 'true';
-
-    setHorizontal(horizontal);
-    setVertical(vertical);
-
     if (gridOverlayRef.current) {
       gridOverlayRef.current.style.setProperty('--grid-column-count', String(columns));
       gridOverlayRef.current.style.setProperty('--grid-baseline', `${baseline}px`);
