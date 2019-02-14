@@ -6,11 +6,11 @@ import Logo from 'assets/svg/logo.svg';
 
 import s from './Header.scss';
 
-interface IProps {
+interface IHeaderProps {
   children?: React.ReactNode;
 }
 
-export const Header = ({ children }: IProps) => (
+export const Header = ({ children }: IHeaderProps) => (
   <header className={s.header}>
     <div className={s.header__container}>
       <div className={s.header__content}>

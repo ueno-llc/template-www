@@ -5,13 +5,13 @@ import { useKeyDown } from 'hooks/use-keydown';
 
 import s from './GsapTools.scss';
 
-interface IProps {
+interface IGsapToolsProps {
   button: boolean;
 }
 
 const LOCAL_STORAGE_GSAPTOOLS = '_uenoDevtoolsGsapTools';
 
-export const GsapTools = ({ button }: IProps) => {
+export const GsapTools = ({ button }: IGsapToolsProps) => {
   const [visible, setVisible] = React.useState(false);
   const keys = useKeyDown();
 
