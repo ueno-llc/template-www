@@ -1,5 +1,8 @@
 import * as React from 'react';
 
+/**
+ * Custom hooks that return the keys that are pressed on the keyboard
+ */
 export const useKeyDown = () => {
   const [keys, setKeys] = React.useState<number[]>([]);
 
@@ -12,13 +15,9 @@ export const useKeyDown = () => {
   };
 
   const handleKeyUp = ({ keyCode }: KeyboardEvent) => {
-    const index = keys.indexOf(keyCode, 0);
+    const d = keys.indexOf(keyCode, 0);
 
-    if (index > -1) {
-      keys.splice(index, 1);
-    }
-
-    setKeys(keys);
+    setKeys([...keys.slice(0, d), ...keys.slice(d + 1)]);
   };
 
   React.useEffect(() => {
