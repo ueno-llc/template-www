@@ -1,8 +1,6 @@
 @import '~styles/config';
 
 .button {
-  @include reset-button;
-
   position: fixed;
   right: 187px;
   top: 0;

@@ -21,8 +21,6 @@
   }
 
   &__logo {
-    @include reset-anchor;
-
     &Svg {
       display: block;
     }

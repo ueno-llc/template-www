@@ -4,8 +4,6 @@ $btn-height: 40px;
 $btn-border-width: 2px;
 
 .button {
-  @include reset-button;
-
   display: inline-flex;
   position: relative;
 
