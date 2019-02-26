@@ -62,10 +62,9 @@ body {
 
   font-family: $font-family;
   line-height: $line-height;
-  color: $color-font;
+  text-size-adjust: 100%; // iOS on orientation change
 
-  // iOS on orientation change
-  text-size-adjust: 100%;
+  color: $color-font;
 }
 
 img {
