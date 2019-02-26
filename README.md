@@ -35,7 +35,7 @@ git add .
 git commit -m "Updated latest template-www"
 ```
 
-### [create-react-app](https://github.com/ueno-llc/create-react-app)
+### [create-react-app](https://github.com/ueno-llc/ueno-cra-starter)
 
 On the root of `ueno-llc/create-react-app`, branch `@feature/ueno`, pull updates from `template-www`
 
