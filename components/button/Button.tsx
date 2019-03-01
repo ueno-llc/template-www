@@ -20,11 +20,27 @@ export const Button = ({ to, children, className, disabled, ...rest }: IButtonPr
   passProps.className = s(s.button, className, { disabled });
 
   if (isExternal) {
-    return <a target="_blank" rel="noopener noreferrer" href={to} {...passProps}>{children}</a>;
+    return (
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href={to}
+        {...passProps}
+      >
+        {children}
+      </a>
+    );
   }
 
   if (isLink) {
-    return <Link to={to || '#'} {...passProps}>{children}</Link>;
+    return (
+      <Link
+        to={to || '#'}
+        {...passProps}
+      >
+        {children}
+      </Link>
+    );
   }
 
   passProps.disabled = disabled;
