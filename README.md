@@ -1,7 +1,5 @@
 [![logo](https://user-images.githubusercontent.com/937328/52405150-91398a00-2ac2-11e9-8b03-36b495817271.png)](https://ueno.co/?utm_source=github&utm_campaign=template-www)
 <br /><br />
-![banner](https://user-images.githubusercontent.com/937328/52415106-0c5c6980-2ade-11e9-9b85-2e9722bd2fce.png)
-<br /><br />
 [![about](https://user-images.githubusercontent.com/937328/51540139-999c8e80-1e4d-11e9-866d-284657a34744.png)](https://ueno.co/contact/?utm_source=github&utm_campaign=template-www)
 <br /><br />
 
