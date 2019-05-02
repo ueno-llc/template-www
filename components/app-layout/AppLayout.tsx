@@ -23,6 +23,7 @@ interface IAppLayoutProps {
 
 const isDev = process.env.NODE_ENV === 'development';
 
+// tslint:disable no-default-export
 export default ({ children }: IAppLayoutProps) => (
   <div className={s.layout}>
     <Helmet {...helmet} />
