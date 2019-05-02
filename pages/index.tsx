@@ -5,6 +5,7 @@ import { Intro } from 'components/intro/Intro';
 import { Highlight } from 'components/intro/Highlight';
 import { BlockText } from 'components/block-text/BlockText';
 
+// tslint:disable no-default-export
 export default () => (
   <>
     <Helmet title="Home" />

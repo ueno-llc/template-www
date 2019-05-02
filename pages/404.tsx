@@ -3,6 +3,7 @@ import Helmet from 'react-helmet';
 
 import { Segment } from 'components/segment/Segment';
 
+// tslint:disable no-default-export
 export default () => (
   <>
     <Helmet title="404 Not Found" />
