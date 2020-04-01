@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import GsapDevTools from 'gsap-tools';
 
 import { useKeyDown } from 'hooks/use-keydown';
@@ -20,7 +20,7 @@ export const GsapTools = ({ button }: IGsapToolsProps) => {
     setVisible(!isVisible);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (keys.includes(17) && keys.includes(71)) {
       onToggleGsapTools();
     }

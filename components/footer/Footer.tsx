@@ -1,16 +1,16 @@
-import * as React from 'react';
+import React, { ReactNode } from 'react';
 
 import { Container } from 'components/container/Container';
 
 import s from './Footer.scss';
 
 interface ISocial {
-  icon: React.ReactNode;
+  icon: ReactNode;
   to: string;
 }
 
 interface IFooterProps {
-  logo: React.ReactNode;
+  logo: ReactNode;
   social: ISocial[];
 }
 

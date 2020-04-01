@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ReactNode } from 'react';
 
 import { Container } from 'components/container/Container';
 import { Row } from 'components/row/Row';
@@ -7,7 +7,7 @@ import s from './BlockText.scss';
 
 interface IBlockTextProps {
   heading: string;
-  description: React.ReactNode;
+  description: ReactNode;
 }
 
 export const BlockText = ({ heading, description }: IBlockTextProps) => (

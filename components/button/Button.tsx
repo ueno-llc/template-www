@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ReactNode } from 'react';
 
 import { Link } from 'components/link/Link';
 
@@ -7,7 +7,7 @@ import s from './Button.scss';
 interface IButtonProps {
   to?: string;
   disabled?: boolean;
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
   [key: string]: any;
 }

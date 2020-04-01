@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 
 import { useKeyDown } from 'hooks/use-keydown';
 import { useLocalStorage } from 'hooks/use-localstorage';
@@ -12,7 +12,7 @@ export const Devtools = () => {
   const [isVisible, setVisible] = useLocalStorage(LOCAL_STORAGE_KEY_VISIBLE, false);
   const keys = useKeyDown();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (keys.includes(17) && keys.includes(75)) {
       setVisible(!isVisible);
     }

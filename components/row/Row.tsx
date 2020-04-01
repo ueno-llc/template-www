@@ -1,9 +1,9 @@
-import * as React from 'react';
+import React, { ReactNode } from 'react';
 
 import s from './Row.scss';
 
 interface IRowProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export const Row = ({ children }: IRowProps) => (

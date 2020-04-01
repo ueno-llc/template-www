@@ -1,5 +1,5 @@
-import * as React from 'react';
-import Helmet from 'react-helmet';
+import React, { ReactNode } from 'react';
+import { Helmet } from 'react-helmet';
 
 import Logo from 'assets/svg/ueno-logo.svg';
 import Dribbble from 'assets/svg/dribbble.svg';
@@ -18,7 +18,7 @@ import { Devtools } from 'components/devtools/Devtools';
 import s from './AppLayout.scss';
 
 interface IAppLayoutProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 const isDev = process.env.NODE_ENV === 'development';

@@ -1,9 +1,9 @@
-import * as React from 'react';
+import React, { ReactNode } from 'react';
 
 import s from './Container.scss';
 
 interface IContainerProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export const Container = ({ children }: IContainerProps) => (

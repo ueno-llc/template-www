@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ReactNode } from 'react';
 
 import { Link as InternalLink } from 'components/link/Link';
 
@@ -7,7 +7,7 @@ import s from './Link.scss';
 interface ILinkProps {
   name: string;
   to: string;
-  icon?: React.ReactNode;
+  icon?: ReactNode;
 }
 
 export const Link = ({ name, to, icon }: ILinkProps) => {

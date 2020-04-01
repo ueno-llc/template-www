@@ -1,7 +1,7 @@
-import * as React from 'react';
+import React, { ReactNode } from 'react';
 
 interface ILinkProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
   [key: string]: any;
 }
 

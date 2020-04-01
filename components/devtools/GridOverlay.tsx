@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import { useKeyDown } from 'hooks/use-keydown';
 import { useLocalStorage } from 'hooks/use-localstorage';
@@ -15,7 +15,7 @@ interface IGridOverlayProps {
 }
 
 export const GridOverlay = ({ columns, baseline, button }: IGridOverlayProps) => {
-  const gridOverlayRef = React.useRef<HTMLDivElement>(null);
+  const gridOverlayRef = useRef<HTMLDivElement>(null);
   const [isHorizontalVisible, setHorizontal] = useLocalStorage(LOCAL_STORAGE_KEY_HORIZONTAL, false);
   const [isVerticalVisible, setVertical] = useLocalStorage(LOCAL_STORAGE_KEY_VERTICAL, false);
   const keys = useKeyDown();
@@ -28,7 +28,7 @@ export const GridOverlay = ({ columns, baseline, button }: IGridOverlayProps) =>
     setVertical(!isVerticalVisible);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (gridOverlayRef.current) {
       gridOverlayRef.current.style.setProperty('--grid-column-count', String(columns));
       gridOverlayRef.current.style.setProperty('--grid-baseline', `${baseline}px`);
@@ -36,7 +36,7 @@ export const GridOverlay = ({ columns, baseline, button }: IGridOverlayProps) =>
     }
   }, [columns, baseline]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (keys.includes(17) && keys.includes(76)) {
       onToggleVertical();
     }

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ReactNode } from 'react';
 
 import { Link } from 'components/link/Link';
 
@@ -7,7 +7,7 @@ import StarterLogo from 'assets/svg/starter-logo.svg';
 import s from './Header.scss';
 
 interface IHeaderProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export const Header = ({ children }: IHeaderProps) => (
