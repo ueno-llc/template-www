@@ -10,7 +10,10 @@ export const helmet = {
   htmlAttributes: { lang: 'en' },
   meta: [
     { name: 'description', content: description },
-    { name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=no' },
+    {
+      name: 'viewport',
+      content: 'width=device-width, initial-scale=1, user-scalable=no',
+    },
     { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
     { name: 'msapplication-navbutton-color', content: '#000' },
     { name: 'msapplication-TileColor', content: '#000' },
@@ -29,7 +32,5 @@ export const helmet = {
     { name: 'twitter:creator', content: '@uenodotco' },
     { name: 'twitter:description', content: description },
   ],
-  link: [
-    { rel: 'icon', type: 'image/x-icon', href: favicon },
-  ],
+  link: [{ rel: 'icon', type: 'image/x-icon', href: favicon }],
 };

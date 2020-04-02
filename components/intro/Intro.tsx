@@ -14,9 +14,7 @@ export const Intro = ({ children }: IIntroProps) => (
     <div className={s.intro}>
       <Row>
         <div className={s.intro__col}>
-          <p className={s.intro__text}>
-            {children}
-          </p>
+          <p className={s.intro__text}>{children}</p>
         </div>
       </Row>
     </div>

@@ -10,7 +10,8 @@ export const Link = ({ children, ...props }: ILinkProps) => {
   let isNext = false;
 
   try {
-    Component = require('next/link'); isNext = true;
+    Component = require('next/link');
+    isNext = true;
   } catch (e) {
     // noop
   }
@@ -35,9 +36,5 @@ export const Link = ({ children, ...props }: ILinkProps) => {
     return <Component>{children}</Component>;
   }
 
-  return (
-    <Component {...props}>
-      {children}
-    </Component>
-  );
+  return <Component {...props}>{children}</Component>;
 };

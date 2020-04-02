@@ -7,7 +7,5 @@ interface IContainerProps {
 }
 
 export const Container = ({ children }: IContainerProps) => (
-  <section className={s.container}>
-    {children}
-  </section>
+  <section className={s.container}>{children}</section>
 );

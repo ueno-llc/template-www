@@ -49,21 +49,29 @@ export const GridOverlay = ({ columns, baseline, button }: IGridOverlayProps) =>
   return (
     <div
       ref={gridOverlayRef}
-      className={s(s.grid, { [s.gridIsHorizontalIsVisible]: isHorizontalVisible, isVerticalVisible })}
+      className={s(s.grid, {
+        [s.gridIsHorizontalIsVisible]: isHorizontalVisible,
+        isVerticalVisible,
+      })}
     >
       <div className={s.grid__container}>
         <div className={s.grid__row} data-columns={columns}>
-          {Array(columns).fill(0).map((_, i) => (
-            <div key={`grid_column_${i}`} className={s.grid__column}>
-              <div className={s.grid__visualize} />
-            </div>
-          ))}
+          {Array(columns)
+            .fill(0)
+            .map((_, i) => (
+              <div key={`grid_column_${i}`} className={s.grid__column}>
+                <div className={s.grid__visualize} />
+              </div>
+            ))}
         </div>
       </div>
 
       {button ? (
         <>
-          <button className={s(s.grid__button, { vertical: isVerticalVisible })} onClick={onToggleVertical}>
+          <button
+            className={s(s.grid__button, { vertical: isVerticalVisible })}
+            onClick={onToggleVertical}
+          >
             <svg className={s.grid__button__svg} width="14px" height="14px" viewBox="0 0 14 14">
               <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                 <rect x="0" y="0" width="2" height="14" />
@@ -74,7 +82,10 @@ export const GridOverlay = ({ columns, baseline, button }: IGridOverlayProps) =>
             </svg>
           </button>
 
-          <button className={s(s.grid__button, { horizontal: isHorizontalVisible })} onClick={onToggleHorizontal}>
+          <button
+            className={s(s.grid__button, { horizontal: isHorizontalVisible })}
+            onClick={onToggleHorizontal}
+          >
             <svg className={s.grid__button__svg} width="14px" height="14px" viewBox="0 0 14 14">
               <g
                 stroke="none"

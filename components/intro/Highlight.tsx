@@ -19,9 +19,5 @@ export const Highlight = ({ children }: IHighlightProps) => {
     ));
   };
 
-  return (
-    <>
-      {renderWords()}
-    </>
-  );
+  return <>{renderWords()}</>;
 };
