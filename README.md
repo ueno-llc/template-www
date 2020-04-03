@@ -1,3 +1,9 @@
+# WARNING
+
+## This repository has been deprecated. Since we now have starters for sass and styled-components, it was not maintainable to keep this repository as a git submodule for the others projects. Since the src folder was not updated often, we decided to move the content of this folder locally to each projects. You can find more on [create-ueno-app](https://github.com/ueno-llc/create-ueno-app).
+
+---
+
 [![logo](https://user-images.githubusercontent.com/937328/52405150-91398a00-2ac2-11e9-8b03-36b495817271.png)](https://ueno.co/?utm_source=github&utm_campaign=template-www)
 <br /><br />
 [![about](https://user-images.githubusercontent.com/937328/51540139-999c8e80-1e4d-11e9-866d-284657a34744.png)](https://ueno.co/contact/?utm_source=github&utm_campaign=template-www)
